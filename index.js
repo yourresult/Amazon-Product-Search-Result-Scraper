@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer';
 import fs from "fs";
-import { searchResults } from "./classes/shreya.js";
+import { searchResults } from "./classes/amazon.js";
 
 async function storeResult(newData = []) {
     const filePath = 'searchResults.json';
