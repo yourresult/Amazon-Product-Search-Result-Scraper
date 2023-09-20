@@ -1,5 +1,15 @@
 import cheerio from 'cheerio';
 
+/**
+ * Through this function, it collects important data from the source data. The format of the collected data is 
+ * [{title: string,
+   image: string,
+   totalRatings: string,
+   starRating: string,
+   price: number,
+   productLink: string,
+   pagination: string}]
+ */
 function searchResults(souce) {
     let result = [];
     const $ = cheerio.load(souce);

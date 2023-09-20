@@ -1,7 +1,9 @@
 import puppeteer from 'puppeteer';
 import fs from "fs";
 import { searchResults } from "./classes/amazon.js";
-
+/**
+ * Stores the data through this function in searchResults.json
+ */
 async function storeResult(newData = []) {
     const filePath = 'searchResults.json';
 
@@ -74,9 +76,6 @@ async function storeResult(newData = []) {
 
         if (nextButton) {
             await nextButton.click();
-            // await page.waitForNavigation({ waitUntil: 'networkidle2' });
-            // await page.waitForSelector(".s-search-results");
-            // Wait for 5 seconds
             await page.waitForTimeout(5000);
 
             const result2 = await page.evaluate(() => {
@@ -95,14 +94,6 @@ async function storeResult(newData = []) {
             return;
         }
 
-        // await page.waitForSelector("a.s-pagination-next");
-        // await page.click("a.s-pagination-next");
-        // await page.waitForSelector("div.s-asin > div");
-
     }
     pagination();
-    // console.log(results);
-
-    // Close the browser
-    // await browser.close();
 })();
